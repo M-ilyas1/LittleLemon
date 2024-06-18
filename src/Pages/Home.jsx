@@ -53,13 +53,13 @@ const Home = () => {
           backgroundRepeat: 'no-repeat',
           backgroundSize: '100% 100%',
         }}>
-          <div className="p-5 flex md:justify-start justify-center py-10 ">
-            <div className="text-center md:w-[55%] w-[100%] bg-[#233b34] rounded-xl md:py-24 py-6 px-6">
-              <h2 className="text-[#F4CE14] font-medium text-[40px]">
+          <div className="md:p-5 p-3 flex md:justify-start justify-center py-10 ">
+            <div className="text-center md:w-[55%] w-[100%] bg-[#233b34] rounded-xl md:py-24 py-4 px-6">
+              <h2 className="text-[#F4CE14] font-medium md:text-[40px] text-[30px]">
                 Little Lemon
               </h2>
               <h3 className="text-white mb-3 text-[25px]">Chicago</h3>
-              <p className="text-white text-[14px] text-left">
+              <p className="text-white md:text-[14px] text-[12px] text-left">
                 Amet minim mollit non deserunt ullamco est sit aliqua dolor do
                 amet sint. Velit officia consequat duis enim velit mollit.
                 Exercitation veniam consequat sunt nostrud amet. Amet minim
