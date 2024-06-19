@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { IoBagRemoveOutline } from "react-icons/io5";
 import Logo from "../assets/images/logo.png";
+import { AddCardContext } from "../context/AddCradProvider";
 
 const Header = () => {
+  const { addCard } = useContext(AddCardContext);
+
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -36,9 +39,15 @@ const Header = () => {
           <Link to="/login" className="hover:text-gray-200 ">
             Login
           </Link>
-          <div className=" p-2 rounded-md bg-[#EDEFEE] text-[black]">
+          <Link
+            to="/cart"
+            className="relative p-2 rounded-md bg-[#EDEFEE] text-[black]"
+          >
             <IoBagRemoveOutline className="text-xl" />
-          </div>
+            <p className="absolute -top-3 -right-2 py-1 px-2 border border-[#495E57] rounded-full text-xs bg-[#F4CE14] text-red-600 font-bold">
+              {addCard.length}
+            </p>{" "}
+          </Link>
         </div>
         <div className="md:hidden">
           <button onClick={toggleMenu}>
@@ -106,11 +115,17 @@ const Header = () => {
               >
                 Login
               </Link>
-              <div className=" p-2 mr-2 rounded-md bg-[#EDEFEE] text-[black]">
+              <Link
+                to="/cart"
+                className="relative p-2 rounded-md bg-[#EDEFEE] text-[black]"
+              >
                 <IoBagRemoveOutline className="text-xl" />
-              </div>
+                <p className="absolute -top-3 -right-2 py-1 px-2 border border-[#495E57] rounded-full text-xs bg-[#F4CE14] text-red-600 font-bold">
+                  {addCard.length}
+                </p>{" "}
+                {/* Display length of card items */}
+              </Link>
             </li>
-            <li></li>
           </ul>
         </div>
       )}

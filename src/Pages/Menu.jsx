@@ -7,7 +7,6 @@ import { IoBagRemoveOutline } from "react-icons/io5";
 import foodData from "../../public/foodData.json";
 import Button from "../components/Button";
 import { BiExpandAlt } from "react-icons/bi";
-import { MdOutlineExpandLess } from "react-icons/md";
 
 const Menu = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -38,80 +37,80 @@ const Menu = () => {
                 <Button>Fastest delivery</Button>
                 <Button>Distance</Button>
               </div>
+              <div className="flex justify-end items-center mt-4">
+                <button
+                  className="md:hidden"
+                  onClick={() => setIsExpanded(!isExpanded)}
+                >
+                  {isExpanded ? <BiExpandAlt /> : <BiExpandAlt />}
+                </button>
+              </div>
             </div>
 
-            <div className="flex justify-end">
-              <button
-                className="md:hidden text-[#495E57] text-[20px]"
-                onClick={() => setIsExpanded(!isExpanded)}
-              >
-                {isExpanded ? <MdOutlineExpandLess /> : <BiExpandAlt />}
-              </button>
-            </div>
+            {/* Toggle button for mobile */}
 
-            {isExpanded && (
-              <div>
-                {/* Quick Filters */}
-                <div className="mb-4 bg-white p-4 rounded-xl">
-                  <h3 className="text-xl font-semibold mb-2">Quick Filters</h3>
-                  <div className="flex flex-wrap gap-2">
-                    <Button>Ratings 4+</Button>
-                    <Button>Top Restaurant</Button>
-                  </div>
-                </div>
-
-                {/* Offers */}
-                <div className="mb-4 bg-white p-4 rounded-xl">
-                  <h3 className="text-xl font-semibold mb-2">Offers</h3>
-                  <div className="flex flex-wrap gap-2">
-                    <Button>Accepts vouchers</Button>
-                    <Button>Free delivery</Button>
-                    <Button>Deals</Button>
-                  </div>
-                </div>
-
-                {/* Cuisines */}
-                <div className="mb-4 bg-white p-4 rounded-xl">
-                  <h3 className="text-xl font-semibold mb-2">Cuisines</h3>
-                  <input
-                    type="text"
-                    placeholder="Search"
-                    className="w-full p-2 mb-4 border border-gray-300 rounded-md"
-                  />
-                  <div className="flex flex-wrap gap-2">
-                    <Button>American</Button>
-                    <Button>BBQ</Button>
-                    <Button>Chinese</Button>
-                    <Button>Beverages</Button>
-                    <Button>Cakes & Bakery</Button>
-                    <Button>Biryani</Button>
-                    <Button>Broast</Button>
-                    <Button>Burgers</Button>
-                    <Button>Continental</Button>
-                  </div>
-                </div>
-
-                {/* Price */}
-                <div className="mb-4 bg-white p-4 rounded-xl">
-                  <h3 className="text-xl font-semibold mb-2">Price</h3>
-                  <div className="flex flex-wrap gap-2">
-                    <Button>$</Button>
-                    <Button>$$</Button>
-                    <Button>$$$</Button>
-                  </div>
-                </div>
-
-                {/* Buttons */}
-                <div className="flex justify-between mt-4">
-                  <Button className="p-3 px-6 border-white text-[18px] border rounded-full">
-                    Clear All
-                  </Button>
-                  <Button className="p-3 px-8 text-[#495E57] text-[18px] bg-[#F4CE14] border rounded-full">
-                    Save
-                  </Button>
+            {/* Conditionally render the rest of the filters */}
+            <div className={`${isExpanded ? "block" : "hidden"} md:block`}>
+              {/* Quick Filters */}
+              <div className="mb-4 bg-white p-4 rounded-xl">
+                <h3 className="text-xl font-semibold mb-2">Quick Filters</h3>
+                <div className="flex flex-wrap gap-2">
+                  <Button>Ratings 4+</Button>
+                  <Button>Top Restaurant</Button>
                 </div>
               </div>
-            )}
+
+              {/* Offers */}
+              <div className="mb-4 bg-white p-4 rounded-xl">
+                <h3 className="text-xl font-semibold mb-2">Offers</h3>
+                <div className="flex flex-wrap gap-2">
+                  <Button>Accepts vouchers</Button>
+                  <Button>Free delivery</Button>
+                  <Button>Deals</Button>
+                </div>
+              </div>
+
+              {/* Cuisines */}
+              <div className="mb-4 bg-white p-4 rounded-xl">
+                <h3 className="text-xl font-semibold mb-2">Cuisines</h3>
+                <input
+                  type="text"
+                  placeholder="Search"
+                  className="w-full p-2 mb-4 border border-gray-300 rounded-md"
+                />
+                <div className="flex flex-wrap gap-2">
+                  <Button>American</Button>
+                  <Button>BBQ</Button>
+                  <Button>Chinese</Button>
+                  <Button>Beverages</Button>
+                  <Button>Cakes & Bakery</Button>
+                  <Button>Biryani</Button>
+                  <Button>Broast</Button>
+                  <Button>Burgers</Button>
+                  <Button>Continental</Button>
+                </div>
+              </div>
+
+              {/* Price */}
+              <div className="mb-4 bg-white p-4 rounded-xl">
+                <h3 className="text-xl font-semibold mb-2">Price</h3>
+                <div className="flex flex-wrap gap-2">
+                  <Button>$</Button>
+                  <Button>$$</Button>
+                  <Button>$$$</Button>
+                </div>
+              </div>
+
+              {/* Buttons */}
+              <div className="flex justify-between mt-4">
+                <Button className="p-3 px-6 border-white text-[18px] border rounded-full">
+                  Clear All
+                </Button>
+                <Button className="p-3 px-8 text-[#495E57] text-[18px] bg-[#F4CE14] border rounded-full">
+                  Save
+                </Button>
+              </div>
+            </div>
           </div>
 
           {/* Food Cards Section */}
