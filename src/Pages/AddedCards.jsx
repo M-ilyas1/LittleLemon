@@ -2,6 +2,8 @@ import { useContext, useState } from "react";
 import { AddCardContext } from "../context/AddCradProvider";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import { RiDeleteBinLine } from "react-icons/ri";
+import { IoBagRemoveOutline } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 
 const AddedCards = () => {
@@ -18,15 +20,27 @@ const AddedCards = () => {
   const orderTotal = subtotal + delivery;
 
   return (
+    <>
+
+    <hr />
     <div className="p-10 bg-[#233b34]">
-      <div className="bg-white md:w-[70%] w-[100%] mx-auto shadow rounded-xl md:p-4 p-2">
+      <div className="bg-white md:w-[70%] w-[100%] mx-auto shadow rounded-xl md:p-6 p-2">
         <div className="grid grid-cols-3">
           <button
             onClick={() => setActiveTab("cart")}
-            className={`p-3 py-5 md:text-[18px] text-[10px] ${
+            className={`p-3 py-5 md:text-[18px] text-[10px] flex justify-center gap-4 ${
               activeTab === "cart" ? " text-black" : " text-black"
             }`}
           >
+            <div
+            to="/cart"
+            className="relative p-2 rounded-md bg-[#EDEFEE] text-[black]"
+          >
+            <IoBagRemoveOutline className="text-xl" />
+            <p className="absolute -top-3 -right-2 py-1 px-2 border border-[#495E57] rounded-full text-xs bg-[#F4CE14] text-red-600 font-bold">
+              {addCard.length}
+            </p>
+          </div>
             Cart
           </button>
           <button
@@ -174,6 +188,7 @@ const AddedCards = () => {
         )}
       </div>
     </div>
+    </>
   );
 };
 

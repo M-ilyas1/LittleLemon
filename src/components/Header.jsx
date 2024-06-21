@@ -46,7 +46,7 @@ const Header = () => {
             <IoBagRemoveOutline className="text-xl" />
             <p className="absolute -top-3 -right-2 py-1 px-2 border border-[#495E57] rounded-full text-xs bg-[#F4CE14] text-red-600 font-bold">
               {addCard.length}
-            </p>{" "}
+            </p>
           </Link>
         </div>
         <div className="md:hidden">

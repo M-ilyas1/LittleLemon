@@ -1,10 +1,13 @@
 // src/components/FoodDetail.jsx
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import { FaMapMarkerAlt, FaClock, FaStar } from "react-icons/fa";
 import { FaFire } from "react-icons/fa";
+import { IoBagRemoveOutline } from 'react-icons/io5';
+
 
 import map from "../assets/images/map.png";
+import { AddCardContext } from "../context/AddCradProvider";
 
 const FoodDetail = () => {
   const { id } = useParams();
@@ -40,21 +43,38 @@ const FoodDetail = () => {
     } else if (tab === 2) {
       itemsToShow = foodData.slice(6, 10); // Third tab shows next 3 items
     }
+  const { addToCard } = useContext(AddCardContext);
+
 
     return (
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {itemsToShow.map((item) => (
-          <div key={item.id} className="bg-white shadow-md rounded-lg overflow-hidden border border-gray-300">
-            <img src={item.image} alt={item.title} className="w-full h-40 object-cover" />
-            <div className="p-4">
-              <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-              <div className="flex items-center mb-2">
-                {Array(item.rating).fill().map((_, i) => (
-                  <FaStar key={i} className="text-yellow-500" />
-                ))}
+        {itemsToShow.map((food, index) => (
+          <div key={index} className="bg-white shadow-md rounded-lg overflow-hidden">
+            <div className="relative">
+              <Link to={`/food/${food.id}`}>
+              <img src={food.image} alt={food.title} className="w-full h-48 object-cover" />
+              </Link>
+              <div className="absolute bottom-2 left-2 flex items-center">
+                <div className="w-full flex gap-4 justify-between items-center">
+                  <div className="bg-[#dddddddc] flex text-white px-2 py-1 rounded-lg">
+                    <div className="flex p-1 px-2 items-center mr-2">
+                      {Array(food.rating).fill().map((_, i) => (
+                        <FaStar key={i} className="text-yellow-500" />
+                      ))}
+                    </div>
+                    <div className="text-sm font-semibold">{food.price}</div>
+                  </div>
+                  <div 
+                    onClick={() => addToCard(food)} // Simplified onClick handler
+                    className="p-2 mr-2 rounded-md bg-[#EDEFEE] text-[black] cursor-pointer"> {/* Added cursor-pointer for better UX */}
+                    <IoBagRemoveOutline className="text-xl" />
+                  </div>
+                </div>
               </div>
-              <div className="text-gray-700 mb-4">{item.description}</div>
-              <div className="text-xl font-bold mb-4">{item.price}</div>
+            </div>
+            <div className="p-4">
+              <h3 className="text-xl font-semibold mb-2">{food.title}</h3>
+              <p className="text-gray-700">{food.description}</p>
             </div>
           </div>
         ))}
