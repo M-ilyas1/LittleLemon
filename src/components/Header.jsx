@@ -24,7 +24,7 @@ const Header = () => {
           <Link to="/" className="hover:text-gray-200">
             Home
           </Link>
-          <Link to="/about" className="hover:text-gray-200">
+          <Link to="/" className="hover:text-gray-200">
             About
           </Link>
           <Link to="/menu" className="hover:text-gray-200 ">
@@ -33,8 +33,11 @@ const Header = () => {
           <Link to="/reservations" className="hover:text-gray-200 ">
             Reservations
           </Link>
-          <Link to="/order" className="hover:text-gray-200 ">
-            Order Online
+          <Link to="/" className="hover:text-gray-200 ">
+            <span className="bg-[#F4CE14] font-medium text-black p-1 rounded-md">
+              Order
+            </span>
+            online
           </Link>
           <Link to="/login" className="hover:text-gray-200 ">
             Login
@@ -44,9 +47,11 @@ const Header = () => {
             className="relative p-2 rounded-md bg-[#EDEFEE] text-[black]"
           >
             <IoBagRemoveOutline className="text-xl" />
-            <p className="absolute -top-3 -right-2 py-1 px-2 border border-[#495E57] rounded-full text-xs bg-[#F4CE14] text-red-600 font-bold">
-              {addCard.length}
-            </p>
+            {addCard.length > 0 && (
+              <p className="absolute -top-3 -right-2 py-1 px-2 border border-[#495E57] rounded-full text-xs bg-[#F4CE14] text-red-600 font-bold">
+                {addCard.length}
+              </p>
+            )}
           </Link>
         </div>
         <div className="md:hidden">
@@ -120,10 +125,11 @@ const Header = () => {
                 className="relative p-2 rounded-md bg-[#EDEFEE] text-[black]"
               >
                 <IoBagRemoveOutline className="text-xl" />
-                <p className="absolute -top-3 -right-2 py-1 px-2 border border-[#495E57] rounded-full text-xs bg-[#F4CE14] text-red-600 font-bold">
-                  {addCard.length}
-                </p>{" "}
-                {/* Display length of card items */}
+                {addCard.length > 0 && (
+                  <p className="absolute -top-3 -right-2 py-1 px-2 border border-[#495E57] rounded-full text-xs bg-[#F4CE14] text-red-600 font-bold">
+                    {addCard.length}
+                  </p>
+                )}
               </Link>
             </li>
           </ul>

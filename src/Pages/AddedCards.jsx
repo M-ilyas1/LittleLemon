@@ -3,32 +3,29 @@ import { AddCardContext } from "../context/AddCradProvider";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { IoBagRemoveOutline } from "react-icons/io5";
-import { Link } from "react-router-dom";
-
 
 const AddedCards = () => {
   const { addCard, removeCard, increaseQuantity, decreaseQuantity } =
     useContext(AddCardContext);
   const [activeTab, setActiveTab] = useState("cart");
 
-  // Calculate subtotal
   const subtotal = addCard.reduce(
     (acc, item) => acc + parseFloat(item.price.slice(1)) * (item.quantity || 1),
     0
   );
-  const delivery = 37.95; // This can be dynamic if needed
+  const delivery = 37.95;
   const orderTotal = subtotal + delivery;
 
   return (
     <>
 
     <hr />
-    <div className="p-10 bg-[#233b34]">
+    <div className="md:p-10 p-2 bg-[#233b34]">
       <div className="bg-white md:w-[70%] w-[100%] mx-auto shadow rounded-xl md:p-6 p-2">
         <div className="grid grid-cols-3">
           <button
             onClick={() => setActiveTab("cart")}
-            className={`p-3 py-5 md:text-[18px] text-[10px] flex justify-center gap-4 ${
+            className={`p-3 md:py-5 py-2 md:text-[18px] text-[14px] flex justify-center items-center gap-4 ${
               activeTab === "cart" ? " text-black" : " text-black"
             }`}
           >
@@ -37,15 +34,17 @@ const AddedCards = () => {
             className="relative p-2 rounded-md bg-[#EDEFEE] text-[black]"
           >
             <IoBagRemoveOutline className="text-xl" />
-            <p className="absolute -top-3 -right-2 py-1 px-2 border border-[#495E57] rounded-full text-xs bg-[#F4CE14] text-red-600 font-bold">
-              {addCard.length}
-            </p>
+            {addCard.length > 0 && (
+                  <p className="absolute -top-3 -right-2 py-1 px-2 border border-[#495E57] rounded-full text-xs bg-[#F4CE14] text-red-600 font-bold">
+                    {addCard.length}
+                  </p>
+                )}
           </div>
             Cart
           </button>
           <button
             onClick={() => setActiveTab("orders")}
-            className={`p-3 py-5 md:text-[18px] text-[10px] rounded-tl-xl ${
+            className={`p-3 md:py-5 py-2 md:text-[18px] text-[14px] rounded-tl-xl ${
               activeTab === "orders"
                 ? "bg-[#233b34] text-white"
                 : "bg-[#233b34] text-white"
@@ -55,7 +54,7 @@ const AddedCards = () => {
           </button>
           <button
             onClick={() => setActiveTab("reservations")}
-            className={`p-3 py-5 md:text-[18px] text-[10px] rounded-tr-xl ${
+            className={`p-3 md:py-5 py-2 md:text-[18px] text-[14px] rounded-tr-xl ${
               activeTab === "reservations"
                 ? "bg-[#233b34] text-white"
                 : "bg-[#233b34] text-white"
