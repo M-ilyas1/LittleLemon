@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="w-[90%] border-[3px] border-[#DDDDDD] rounded-xl p-4 mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:text-left text-center">
 
         <div className='mx-auto md:mx-0'>
-          <img src="https://s3-alpha-sig.figma.com/img/5dbd/187b/84ba112be1562a94f9019ad71f11179f?Expires=1719187200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=nZ3sDKwVxwJFDS~IERtWQBQ3O4BYrk0ynJNRoR0djX-MUpKlxxSEiXHQ3HRzLvWr~6ssEqyDS0NkjTaJEns2ZLLB0feSLNtNGBGw13H33l5qw7vNx9~7B2j~flhKrEd-pJAmKswOpPl~itTyc~ppvnWUBwQ17EXNVP01Q2kRV8ojE9OStFGNAtcURCqH6fhbNcmD5V3kITl6n8kA8g5U5Pc7hFMYxLlv~d4Tm~89R5pL--J9hKkA30jHLVwWa5H0Qepa0jrPE4GcVeLaM22hxkIbuzTs2dImMQ7112sxr~0tGtJba~4wW3GxTw2cZhBa19PWHgKp3xLoLxqgU7Ub0Q__" alt="Logo" className="w-36 mb-4 p-4 rounded-lg bg-[#ddddddd6]" />
+          <img src="https://s3-alpha-sig.figma.com/img/5dbd/187b/84ba112be1562a94f9019ad71f11179f?Expires=1724025600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=ESdI6BjiY1KE6MgUOnjR9a6o9Y4lyPOkt1i8p6Ut1hy0FJbSumt2nm6RlaqZDH3ZvgNpv9SeI-PcM8jxBCHrD-iJD8Qsx4TpRWyL1P8PeU6p7jZxl4dhOiq-wbdR-Nnice0UBso-YBUw8iAzKhOdjBMFsun4fwTpLDCvG2FcKxtygmxPaalGIgdhJ2IekLZocdvNoSgqMi34tQ6ekMNyYdWfvb1xRiIVC5AETJLPOKYgK3HayFLqRRKQ~HjfUMO~LTZWs-YjBR2sxGHXa3M59cA8lvQmTV3SDtt3e0cHiOVhsEZSZ7lMnKCQLVQigbbqwQgU4xQPS7mqDAYxPtmmfw__" alt="Logo" className="w-36 mb-4 p-4 rounded-lg bg-[#ddddddd6]" />
         </div>
 
         <div>
